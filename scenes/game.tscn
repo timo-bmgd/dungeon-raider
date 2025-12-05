@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=4 uid="uid://b75aajcjkg4mj"]
+[gd_scene load_steps=8 format=4 uid="uid://b75aajcjkg4mj"]
 
+[ext_resource type="Script" uid="uid://dlb3hxyyyljge" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://di3fotwsmkky1" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://ciyesxneh42s1" path="res://scenes/levels.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" path="res://scenes/levels.tscn" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://b3ye5gktvbhuj" path="res://scripts/game_manager.gd" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://i7drnkdrssvp" path="res://scenes/item.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bvpekn53kuron" path="res://scenes/ui.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://vbag1du7jjov" path="res://scripts/ui.gd" id="7_u5sy4"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_lnu2h")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_p57ef")
 
 [node name="Levels" parent="." instance=ExtResource("1_yqjtg")]
 scale = Vector2(3, 3)
@@ -15,3 +25,10 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
+
+[node name="Item" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(191, 84)
+
+[node name="ui" parent="." instance=ExtResource("5_iywne")]
+unique_name_in_owner = true
+script = ExtResource("7_u5sy4")
