@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxktw3i3rbctq"]
+
+[ext_resource type="Script" uid="uid://c7c7ut0csgjg2" path="res://main_menu.gd" id="1_7xvvk"]
+[ext_resource type="FontFile" uid="uid://cspj4nll68qpc" path="res://assets/fonts/DS-TERM.TTF" id="2_xub87"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 351.5
+offset_top = 68.0
+offset_right = 760.5
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+script = ExtResource("1_7xvvk")
+
+[node name="StartGame" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.7202484, 0.95871407, 0.67331564, 1)
+theme_override_colors/font_hover_color = Color(0.4610172, 0.8664789, 0.5559188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1.0889582e-06, 0.36033097, 4.813075e-08, 1)
+theme_override_colors/icon_normal_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.60806066, 0.7931982, 0.37756765, 1)
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_xub87")
+theme_override_font_sizes/font_size = 64
+text = "START GAME"
+
+[node name="BackToMenu" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.7202484, 0.95871407, 0.67331564, 1)
+theme_override_colors/font_hover_color = Color(0.4610172, 0.8664789, 0.5559188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1.0889582e-06, 0.36033097, 4.813075e-08, 1)
+theme_override_colors/icon_normal_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.60806066, 0.7931982, 0.37756765, 1)
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_xub87")
+theme_override_font_sizes/font_size = 64
+text = "BACK TO MENU"
+
+[node name="Options" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.7202484, 0.95871407, 0.67331564, 1)
+theme_override_colors/font_hover_color = Color(0.4610172, 0.8664789, 0.5559188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1.0889582e-06, 0.36033097, 4.813075e-08, 1)
+theme_override_colors/icon_normal_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.60806066, 0.7931982, 0.37756765, 1)
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_xub87")
+theme_override_font_sizes/font_size = 64
+text = "OPTIONS"
+
+[node name="Exit" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.7202484, 0.95871407, 0.67331564, 1)
+theme_override_colors/font_hover_color = Color(0.4610172, 0.8664789, 0.5559188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1.0889582e-06, 0.36033097, 4.813075e-08, 1)
+theme_override_colors/icon_normal_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.60806066, 0.7931982, 0.37756765, 1)
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_xub87")
+theme_override_font_sizes/font_size = 64
+text = "EXIT"
+
+[node name="LoadingStatus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 37.0
+offset_right = 750.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(0.31492648, 0.57654786, 0.18867895, 1)
+theme_override_font_sizes/font_size = 128
+
+[connection signal="pressed" from="BoxContainer/StartGame" to="BoxContainer" method="_on_start_game_pressed"]
+[connection signal="pressed" from="BoxContainer/BackToMenu" to="BoxContainer" method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="BoxContainer/Exit" to="BoxContainer" method="_on_exit_pressed"]

@@ -3,29 +3,57 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="place_holder1" type="ColorRect" parent="."]
-offset_left = 384.0
-offset_top = 512.0
-offset_right = 448.0
-offset_bottom = 576.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -104.0
+offset_right = -160.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
 
 [node name="place_holder2" type="ColorRect" parent="."]
-offset_left = 512.0
-offset_top = 512.0
-offset_right = 576.0
-offset_bottom = 576.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -104.0
+offset_right = -32.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
 
 [node name="place_holder3" type="ColorRect" parent="."]
-offset_left = 640.0
-offset_top = 512.0
-offset_right = 704.0
-offset_bottom = 576.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -104.0
+offset_right = 96.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
 
 [node name="place_holder4" type="ColorRect" parent="."]
-offset_left = 768.0
-offset_top = 512.0
-offset_right = 832.0
-offset_bottom = 576.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = -104.0
+offset_right = 224.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)

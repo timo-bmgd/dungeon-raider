@@ -1,7 +1,13 @@
 extends CanvasLayer
 
 @onready var place_holder_1: ColorRect = $place_holder1
+@onready var panel: Panel = $Panel
 
+
+func _process(delta):
+	if Input.is_action_just_pressed("menu"):
+		panel.visible = !panel.visible
+		
 
 func add_item(item):
 	if item.get_parent():

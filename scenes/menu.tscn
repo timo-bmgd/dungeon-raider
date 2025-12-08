@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dn6rkok7g00b7"]
+
+[node name="Ingame-Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0028819, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -15.5
+offset_right = 57.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99795705, 1)
+text = "Back to Game"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.782837
+offset_top = -98.72064
+offset_right = 47.217163
+offset_bottom = -67.72064
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0056596)
+text = "Main Menu
+"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.65252
+offset_top = 73.07086
+offset_right = 67.0011
+offset_bottom = 105.14691
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit to Desktop"
