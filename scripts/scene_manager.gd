@@ -26,7 +26,7 @@ func _deferred_goto_scene(path):
 
 	# Load the new scene.
 	var s = ResourceLoader.load(path)
-
+	
 	# Instance the new scene.
 	current_scene = s.instantiate()
 
