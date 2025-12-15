@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://t7mygfmuxnn5"]
 
-[ext_resource type="Script" uid="uid://d235pgflgw52e" path="res://panel.gd" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://d235pgflgw52e" path="res://scripts/panel.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://cxktw3i3rbctq" path="res://scenes/main_menu_buttons.tscn" id="1_l6cm7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vue75"]
