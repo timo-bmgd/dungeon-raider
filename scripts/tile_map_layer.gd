@@ -9,6 +9,7 @@ func _ready():
 	
 	var patterns = Array()
 	var patterns_num = tile_map_layer.tile_set.get_patterns_count()
+	print("Generator found %s patterns" % patterns_num)
 	
 	for i in range(patterns_num):
 		patterns.append(tile_map_layer.tile_set.get_pattern(i))
