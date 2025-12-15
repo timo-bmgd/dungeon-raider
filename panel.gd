@@ -1,9 +1,9 @@
 extends Panel
 
-var noise
+@onready var stylebox: StyleBoxTexture = get_theme_stylebox("panel").duplicate()
+@onready var texture: NoiseTexture2D = stylebox.texture.duplicate()
+@onready var noise: FastNoiseLite = texture.noise.duplicate()
 
-func _ready() -> void:
-	noise = self.get_theme_stylebox("panel").texture.noise
 
 func _physics_process(delta):
 	noise.seed = randi() 
