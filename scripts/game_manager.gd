@@ -8,7 +8,6 @@ var scenes_path = "res://scenes/%s.tscn"
 @onready var ui: CanvasLayer = %ui
 @onready var level_container: Node2D = %LevelContainer
 
-
 var inventory = Array()
 
 func collect_item(item):
