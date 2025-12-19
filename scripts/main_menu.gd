@@ -9,7 +9,6 @@ extends Control
 @onready var exit: Button = $Exit
 
 func _ready():
-	print("asking for update to STATE")
 	match SceneManager.state:
 		SceneManager.State.GAME:
 			start_game.visible = false;
