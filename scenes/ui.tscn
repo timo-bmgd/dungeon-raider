@@ -1,59 +1,80 @@
-[gd_scene format=3 uid="uid://bvpekn53kuron"]
+[gd_scene load_steps=3 format=3 uid="uid://bvpekn53kuron"]
+
+[sub_resource type="Gradient" id="Gradient_xlq6p"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.69803923, 0.8509804, 0.08235294)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nt7q6"]
+gradient = SubResource("Gradient_xlq6p")
+width = 1
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="place_holder1" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="Control" type="Control" parent="."]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -224.0
-offset_top = -104.0
-offset_right = -160.0
-offset_bottom = -40.0
 grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
+grow_vertical = 2
 
-[node name="place_holder2" type="ColorRect" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -104.0
-offset_right = -32.0
-offset_bottom = -40.0
+offset_left = -576.0
+offset_top = -408.0
+offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
 
-[node name="place_holder3" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -104.0
-offset_right = 96.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
+[node name="Button" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 8.58
+icon = SubResource("GradientTexture1D_nt7q6")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
-[node name="place_holder4" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 160.0
-offset_top = -104.0
-offset_right = 224.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.6133005, 1.2878051, 1.3450744, 0.44705883)
+[node name="Button2" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 8.58
+icon = SubResource("GradientTexture1D_nt7q6")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 8.58
+icon = SubResource("GradientTexture1D_nt7q6")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button4" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 8.58
+icon = SubResource("GradientTexture1D_nt7q6")
+flat = true
+icon_alignment = 1
+expand_icon = true

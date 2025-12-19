@@ -10,6 +10,10 @@ var scenes_path = "res://scenes/%s.tscn"
 
 var inventory = Array()
 
+var selected_inv_spot_index := 0:
+	set(value):
+		selected_inv_spot_index = clamp(value, 0, inventory.size())
+
 func collect_item(item):
 	inventory.append(item)
 	print(item)
@@ -17,7 +21,7 @@ func collect_item(item):
 
 func _ready() -> void:
 	# Set the SPACESHIP as the level
-	load_level("level_dungeon")
+	load_level("level_spaceship")
 	
 
 func clear_levels():

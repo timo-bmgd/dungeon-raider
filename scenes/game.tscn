@@ -22,7 +22,7 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-8.5, 0)
-zoom = Vector2(2, 2)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="ui" parent="." instance=ExtResource("6_6370d")]
