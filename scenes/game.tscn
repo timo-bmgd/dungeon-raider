@@ -11,9 +11,15 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xmnyv")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_cx7qy")
+
+[node name="throw_timer" type="Timer" parent="GameManager"]
+wait_time = 4096.0
+autostart = true
 
 [node name="Player" parent="." instance=ExtResource("4_r0gsk")]
 z_index = 10
@@ -63,3 +69,5 @@ z_index = 6
 
 [node name="Item" parent="items" instance=ExtResource("5_oi2tv")]
 position = Vector2(191, 84)
+
+[connection signal="timeout" from="GameManager/throw_timer" to="GameManager" method="_on_throw_timer_timeout"]
