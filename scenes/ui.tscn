@@ -1,12 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvpekn53kuron"]
-
-[sub_resource type="Gradient" id="Gradient_xlq6p"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0.69803923, 0.8509804, 0.08235294)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nt7q6"]
-gradient = SubResource("Gradient_xlq6p")
-width = 1
+[gd_scene format=3 uid="uid://bvpekn53kuron"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -35,46 +27,26 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="itemHolder" type="Panel" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
-size_flags_stretch_ratio = 8.58
-icon = SubResource("GradientTexture1D_nt7q6")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Button2" type="Button" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="itemHolder2" type="Panel" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
-size_flags_stretch_ratio = 8.58
-icon = SubResource("GradientTexture1D_nt7q6")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Button3" type="Button" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="itemHolder3" type="Panel" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
-size_flags_stretch_ratio = 8.58
-icon = SubResource("GradientTexture1D_nt7q6")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Button4" type="Button" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="itemHolder4" type="Panel" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
-size_flags_stretch_ratio = 8.58
-icon = SubResource("GradientTexture1D_nt7q6")
-flat = true
-icon_alignment = 1
-expand_icon = true

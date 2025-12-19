@@ -6,6 +6,6 @@ extends Panel
 
 
 func _process(_delta):
-	noise.seed = randi() 
+	# noise.seed = randi() 
 	noise.frequency = maxf(randf(), 0.2)
-	noise.domain_warp_frequency = randf()*1000
+	# noise.domain_warp_frequency = randf()*1000

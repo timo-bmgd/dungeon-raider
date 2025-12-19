@@ -12,7 +12,14 @@ var inventory = Array()
 
 var selected_inv_spot_index := 0:
 	set(value):
-		selected_inv_spot_index = clamp(value, 0, inventory.size())
+		selected_inv_spot_index = clamp(value, 0, 4)
+		
+		
+func _input(event: InputEvent) -> void:
+	if(event.is_action("1") or event.is_action("2") or event.is_action("3") or event.is_action("4")):
+		selected_inv_spot_index = event.as_text().to_int()
+		ui.set_select(selected_inv_spot_index)
+		
 
 func collect_item(item):
 	inventory.append(item)
