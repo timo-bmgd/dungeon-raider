@@ -25,9 +25,10 @@ func on_thrown() -> void:
 	enable_after_spawn.one_shot = true
 	enable_after_spawn.start()
 
-
 func set_collision(status) -> void:
 	print("setting item collision to " + str(status))
-	rigid_collision_shape_2d.disabled = !status
+	if status:
+		set_collision_mask_value(2, true)  # Enable collision with player (layer 2)
+	else:
+		set_collision_mask_value(2, false)  # Disable collision with player (layer 2)
 	pick_up_zone.monitoring = status
-	

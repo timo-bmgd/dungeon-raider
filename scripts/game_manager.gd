@@ -68,14 +68,17 @@ func _on_throw_timer_timeout() -> void:
 	if item == null:
 		return
 		
-	# throw the item that you have!
 	var target := get_global_mouse_position() - player.global_position
 	item_container.add_child(item)
-	item.global_position = player.global_position
-	item.linear_velocity = target * 3
+	var direction := target.normalized()
+	item.global_position = player.global_position + direction * 30  # Spawn 30 pixels away
 	
-	# Call directly on THIS item, not via signal
+	# Use impulse instead of setting velocity directly
+	item.linear_velocity = Vector2.ZERO  # Reset any existing velocity
+	item.apply_impulse(target.normalized() * 500)  # Adjust 500 to change throw strength
+	
 	item.on_thrown()
+
 
 
 	
