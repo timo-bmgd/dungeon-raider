@@ -78,8 +78,3 @@ func _on_throw_timer_timeout() -> void:
 	item.apply_impulse(target.normalized() * 500)  # Adjust 500 to change throw strength
 	
 	item.on_thrown()
-
-
-
-	
-	
