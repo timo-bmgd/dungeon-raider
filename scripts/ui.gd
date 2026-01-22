@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@onready var place_holder_1: ColorRect = $place_holder1
 @onready var panel: Panel = $Panel
 
 @onready var h_box_container: HBoxContainer = $Control/HBoxContainer
@@ -44,17 +43,17 @@ func find_free_item_holder() -> Panel:
 
 func add_item(item: Item):
 	if item.get_parent():
-		item.get_parent().remove_child(item)
-		
+		var parent = item.get_parent()
+		parent.call_deferred("remove_child", item)
+	print("Added the item to inventory " + str(item))
 	var my_item_holder := find_free_item_holder()
 	if my_item_holder == null:
 		inventory_is_full.emit()
-		
 	# Add as child of the button node
-	my_item_holder.add_child(item)
+	my_item_holder.call_deferred("add_child",item)
 	item.position = Vector2(0,0) + my_item_holder.size * 0.5
 	item.in_inventory = true
-	
+		
 func set_select(num:int) -> void:
 	item_holders[currently_selected].add_theme_stylebox_override("panel", normal_style)
 	currently_selected = num -1

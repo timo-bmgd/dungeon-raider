@@ -1,21 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://i7drnkdrssvp"]
+[gd_scene load_steps=5 format=3 uid="uid://i7drnkdrssvp"]
 
 [ext_resource type="Texture2D" uid="uid://c376le1b3gfga" path="res://assets/sprites/food/bulk-background-remover/item_hotdog.png" id="1_4gq7n"]
 [ext_resource type="Script" uid="uid://cmps3uoe3fl1r" path="res://scripts/item.gd" id="2_s8enn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gq7n"]
-size = Vector2(62, 35)
+size = Vector2(72, 46)
 
-[node name="Item" type="Area2D"]
-collision_mask = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8enn"]
+size = Vector2(37.046875, 16.859375)
+
+[node name="Item" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("2_s8enn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("RectangleShape2D_4gq7n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -6)
 texture = ExtResource("1_4gq7n")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="PickUpZone" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpZone"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_4gq7n")
+
+[node name="Enable after spawn" type="Timer" parent="PickUpZone"]
+wait_time = 0.945
+one_shot = true
+autostart = true
+
+[node name="RigidCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5234375, -1)
+shape = SubResource("RectangleShape2D_s8enn")
+
+[connection signal="body_entered" from="PickUpZone" to="." method="_on_pick_up_zone_body_entered"]
+[connection signal="timeout" from="PickUpZone/Enable after spawn" to="." method="_on_enable_after_spawn_timeout"]

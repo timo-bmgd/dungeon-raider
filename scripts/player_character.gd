@@ -15,7 +15,5 @@ func _process(delta):
 		velocity = direction * run_speed
 	else:
 		velocity = direction * sneak_speed
-
-	
-	
+		
 	move_and_slide()

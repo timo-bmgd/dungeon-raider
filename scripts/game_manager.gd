@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 enum Level {SPACESHIP, DUNGEON}
 var current_level = Level.SPACESHIP
@@ -7,11 +7,15 @@ var scenes_path = "res://scenes/%s.tscn"
 
 @onready var ui: CanvasLayer = %ui
 @onready var level_container: Node2D = %LevelContainer
+@onready var player: CharacterBody2D = $"../Player"
+@onready var item_container: Node2D = $"../ItemContainer"
 
 var inventory = Array()
 
 var throw_pressed = false
 @onready var throw_timer: Timer = $throw_timer
+
+signal item_thrown
 
 var selected_inv_spot_index := 0:
 	set(value):
@@ -31,11 +35,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_released("throw"):
 		print("pressed for " + str(4096-throw_timer.time_left))
 		throw_timer.timeout.emit()
-
 		
 func collect_item(item):
 	inventory.append(item)
-	print(item)
 	ui.add_item(item)
 
 func _ready() -> void:
@@ -53,8 +55,28 @@ func load_level(scene_name):
 	var level: Resource = ResourceLoader.load(scenes_path % scene_name)
 	level_container.add_child(level.instantiate())
 
+func remove_selected_item() -> Item:
+	var item : Item = inventory.pop_at(selected_inv_spot_index)
+	if item == null:
+		return null
+	if item.get_parent():
+		item.get_parent().remove_child(item)
+	return item
 
 func _on_throw_timer_timeout() -> void:
+	var item := remove_selected_item()
+	if item == null:
+		return
+		
 	# throw the item that you have!
-	print("throwing item!")
-	print(str(get_viewport().get_mouse_position()))
+	var target := get_global_mouse_position() - player.global_position
+	item_container.add_child(item)
+	item.global_position = player.global_position
+	item.linear_velocity = target * 3
+	
+	# Call directly on THIS item, not via signal
+	item.on_thrown()
+
+
+	
+	

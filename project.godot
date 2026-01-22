@@ -93,6 +93,19 @@ throw={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Items"
+2d_physics/layer_4="Pickups"
+
+[physics]
+
+2d/default_gravity=0.0
+2d/default_linear_damp=3.0
+2d/default_angular_damp=5.486
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
