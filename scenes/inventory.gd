@@ -37,10 +37,7 @@ func add_item(item: Item) -> bool:
 	if slot == -1:
 		inventory_full.emit()
 		return false
-	
-	slots[slot] = item
-	item.in_inventory = true
-	item_added.emit(item, slot)
+	add_item_to_slot(item, slot)
 	return true
 
 func add_item_to_slot(item: Item, slot: int) -> bool:
@@ -50,7 +47,7 @@ func add_item_to_slot(item: Item, slot: int) -> bool:
 		return false
 	
 	slots[slot] = item
-	item.in_inventory = true
+	item.enter_inventory()
 	item_added.emit(item, slot)
 	return true
 

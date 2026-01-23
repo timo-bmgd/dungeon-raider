@@ -14,6 +14,9 @@ var inventory: Node  # Reference set by game_manager or via export
 func _ready() -> void:
 	item_holders = h_box_container.get_children()
 	init_styles()
+	# Set initial selection
+	_on_selection_changed(inventory.get_selected_slot())
+
 
 func init_styles() -> void:
 	normal_style.bg_color = Color(0.2, 0.2, 0.2, 0.5)
@@ -33,8 +36,6 @@ func connect_to_inventory(inv: Node) -> void:
 	inventory.item_added.connect(_on_item_added)
 	inventory.item_removed.connect(_on_item_removed)
 	inventory.selection_changed.connect(_on_selection_changed)
-	# Set initial selection
-	_on_selection_changed(inventory.get_selected_slot())
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("menu"):
@@ -63,7 +64,7 @@ func _on_selection_changed(slot: int) -> void:
 	# Reset all to normal style
 	for holder in item_holders:
 		holder.add_theme_stylebox_override("panel", normal_style)
-	
 	# Highlight selected
 	if slot >= 0 and slot < item_holders.size():
 		item_holders[slot].add_theme_stylebox_override("panel", selected_style)
+		print("added style")

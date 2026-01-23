@@ -32,3 +32,12 @@ func set_collision(status) -> void:
 	else:
 		set_collision_mask_value(2, false)  # Disable collision with player (layer 2)
 	pick_up_zone.monitoring = status
+	
+func enter_inventory() -> void:
+	in_inventory = true
+	rotation = 0
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0
+
+func exit_inventory() -> void:
+	in_inventory = false

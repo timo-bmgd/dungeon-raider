@@ -8,7 +8,6 @@ extends CharacterBody2D
 var current_direction := "down"
 
 
-
 func _process(_delta):
 	var direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
