@@ -1,6 +1,8 @@
 extends CharacterBody2D
 @export var run_speed = 400
 @export var sneak_speed = 200
+@export var push_force: float = 30.0
+
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var current_direction := "down"
@@ -23,6 +25,7 @@ func _process(_delta):
 		
 	update_animation(direction)
 	move_and_slide()
+	push_items()
 
 func update_animation(direction: Vector2) -> void:
 	# Update facing direction if moving
@@ -39,3 +42,13 @@ func update_animation(direction: Vector2) -> void:
 		animated_sprite.play("idle_" + current_direction)
 	else:
 		animated_sprite.play("run_" + current_direction)
+		
+func push_items() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var collider := collision.get_collider()
+		
+		# Check if it's a RigidBody2D on layer 3 (items)
+		if collider is RigidBody2D and collider.get_collision_layer_value(3):
+			var push_dir := -collision.get_normal()
+			collider.apply_central_impulse(push_dir * push_force)
