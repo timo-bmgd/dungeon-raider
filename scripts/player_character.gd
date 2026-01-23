@@ -7,7 +7,7 @@ var current_direction := "down"
 
 
 
-func _process(delta):
+func _process(_delta):
 	var direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
