@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	# Set the SPACESHIP as the level
 	load_level("level_spaceship")
-
+	
 func _unhandled_key_input(event: InputEvent) -> void:
 	# Handle slot selection (1-5 keys)
 	var actions = ["1", "2", "3", "4"]

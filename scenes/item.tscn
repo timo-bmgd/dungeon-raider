@@ -9,7 +9,7 @@ size = Vector2(72, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8enn"]
 size = Vector2(37.046875, 16.859375)
 
-[node name="Item" type="RigidBody2D"]
+[node name="Item" type="RigidBody2D" groups=["Item"]]
 collision_layer = 4
 collision_mask = 3
 continuous_cd = 2
