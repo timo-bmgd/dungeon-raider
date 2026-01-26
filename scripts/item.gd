@@ -6,16 +6,23 @@ extends RigidBody2D
 @onready var rigid_collision_shape_2d: CollisionShape2D = $RigidCollisionShape2D
 
 @export var value = 10
+@export var size = 1	:
+	set(value):
+		size = value
+		update_children_scale()
 
 var in_inventory = false:
 	set(value):
 		in_inventory = value
 		print("in inventory changed to:" + str(value))
 
+func update_children_scale():
+	for child in get_children():
+		child.scale = Vector2(size, size)	
+
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 	print("item collected by:" + str(body.name))
 	game_manager.collect_item(self)
-	
 
 func _on_enable_after_spawn_timeout() -> void:
 	print("enabled the item after spawn timeout")
@@ -40,6 +47,9 @@ func enter_inventory() -> void:
 	rotation = 0
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0
+	size = 2
 
 func exit_inventory() -> void:
 	in_inventory = false
+	size = 1
+	

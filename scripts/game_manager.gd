@@ -44,7 +44,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			# Convert to 0-based index
 			inventory.set_selected(event.as_text().to_int() - 1)
 
-
 	if event.is_action_pressed("throw"):
 		throw_timer.start()
 		print("throw!")
