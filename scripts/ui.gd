@@ -19,13 +19,13 @@ func _ready() -> void:
 
 
 func init_styles() -> void:
-	normal_style.bg_color = Color(0.2, 0.2, 0.2, 0.5)
-	selected_style.bg_color = Color(0.2, 0.2, 0.2, 0.5)
+	normal_style.bg_color = Color(0.769, 0.769, 0.769, 0.5)
+	selected_style.bg_color = Color(0.904, 0.904, 0.904, 0.5)
 	
-	selected_style.border_width_left = 3
-	selected_style.border_width_right = 3
-	selected_style.border_width_top = 3
-	selected_style.border_width_bottom = 3
+	selected_style.border_width_left = 7
+	selected_style.border_width_right = 7
+	selected_style.border_width_top = 7
+	selected_style.border_width_bottom = 7
 	selected_style.border_color = Color(0.483, 0.661, 0.835, 0.91)
 	
 	for holder in item_holders:

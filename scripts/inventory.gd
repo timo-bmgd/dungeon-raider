@@ -61,6 +61,7 @@ func remove_item(slot: int) -> Item:
 	
 	slots[slot] = null
 	item.in_inventory = false
+	item.exit_inventory()
 	item_removed.emit(item, slot)
 	return item
 
