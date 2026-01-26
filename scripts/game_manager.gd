@@ -14,7 +14,6 @@ var scenes_path = "res://scenes/%s.tscn"
 @onready var inventory: Node = $"../Player/Inventory"
 @onready var throw_timer: Timer = $throw_timer
 
-var throw_pressed := false
 
 func _ready() -> void:
 	# Connect UI to inventory
@@ -32,7 +31,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			inventory.set_selected(event.as_text().to_int() - 1)
 	
 	if event.is_action_pressed("throw"):
-		throw_pressed = true
 		throw_timer.start()
 		print("throw!")
 	

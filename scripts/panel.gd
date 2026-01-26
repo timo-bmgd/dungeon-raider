@@ -4,7 +4,12 @@ extends Panel
 @onready var texture: NoiseTexture2D = stylebox.texture
 @onready var noise: FastNoiseLite = texture.noise
 
+var old
 
-func _process(_delta):
-	noise.frequency = maxf(randf(), 0.2)
-	# noise.domain_warp_frequency = randf()*1000
+func _ready() -> void:
+	old = maxf(randf(), 0.2)
+
+
+func _process(delta):
+	var updated = old + maxf(randf(), 0.2) * delta/10
+	noise.domain_warp_frequency = updated

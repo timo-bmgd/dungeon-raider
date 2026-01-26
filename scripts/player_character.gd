@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@export var run_speed = 400
-@export var sneak_speed = 200
+@export var run_speed = 200
+@export var sneak_speed = 100
 @export var push_force: float = 30.0
 
 

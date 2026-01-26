@@ -2,7 +2,7 @@
 
 extends Node
 
-const MAX_SLOTS := 5
+const MAX_SLOTS := 4
 
 signal item_added(item: Item, slot: int)
 signal item_removed(item: Item, slot: int)
