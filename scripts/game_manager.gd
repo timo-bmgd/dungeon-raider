@@ -22,6 +22,20 @@ func _ready() -> void:
 	# Set the SPACESHIP as the level
 	load_level("level_spaceship")
 	
+	
+func _input(event: InputEvent) -> void:
+	# Handle scrolling
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				var current = inventory.get_selected_slot()
+				var new_index = (current - 1) % 4
+				inventory.set_selected(new_index)
+			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				var current = inventory.get_selected_slot()
+				var new_index = (current + 1) % 4
+				inventory.set_selected(new_index)
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	# Handle slot selection (1-5 keys)
 	var actions = ["1", "2", "3", "4"]
@@ -29,7 +43,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if event.is_action_pressed(action):
 			# Convert to 0-based index
 			inventory.set_selected(event.as_text().to_int() - 1)
-	
+
+
 	if event.is_action_pressed("throw"):
 		throw_timer.start()
 		print("throw!")
