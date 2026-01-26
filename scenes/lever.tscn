@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://53fqv8bnvf8g"]
 
 [ext_resource type="Texture2D" uid="uid://d2g4b3ixa6g3b" path="res://assets/sprites/indoor/lever2_selectable.png" id="2_esdi3"]
-[ext_resource type="Script" uid="uid://cc5xit0yqrvly" path="res://scenes/lever.gd" id="2_qv7xt"]
+[ext_resource type="Script" uid="uid://cc5xit0yqrvly" path="res://scripts/lever.gd" id="2_qv7xt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esdi3"]
 size = Vector2(27.5, 26)

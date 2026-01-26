@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlb3hxyyyljge" path="res://scripts/game.gd" id="1_xmnyv"]
 [ext_resource type="Script" uid="uid://b3ye5gktvbhuj" path="res://scripts/game_manager.gd" id="2_cx7qy"]
-[ext_resource type="Script" uid="uid://c351vim3omago" path="res://scenes/inventory.gd" id="4_gee14"]
+[ext_resource type="Script" uid="uid://c351vim3omago" path="res://scripts/inventory.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://di3fotwsmkky1" path="res://scenes/player.tscn" id="4_r0gsk"]
 [ext_resource type="PackedScene" uid="uid://i7drnkdrssvp" path="res://scenes/item.tscn" id="5_oi2tv"]
 [ext_resource type="PackedScene" uid="uid://bvpekn53kuron" path="res://scenes/ui.tscn" id="6_6370d"]
