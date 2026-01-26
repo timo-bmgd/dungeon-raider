@@ -1,36 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://53fqv8bnvf8g"]
+[gd_scene load_steps=9 format=3 uid="uid://53fqv8bnvf8g"]
 
-[ext_resource type="Texture2D" uid="uid://fhaxmfweoib3" path="res://assets/sprites/indoor/lever2.png" id="1_rlgoh"]
+[ext_resource type="Texture2D" uid="uid://d2g4b3ixa6g3b" path="res://assets/sprites/indoor/lever2_selectable.png" id="2_esdi3"]
 [ext_resource type="Script" uid="uid://cc5xit0yqrvly" path="res://scenes/lever.gd" id="2_qv7xt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qv7xt"]
-atlas = ExtResource("1_rlgoh")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esdi3"]
+size = Vector2(27.5, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj1wc"]
+atlas = ExtResource("2_esdi3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_esdi3"]
-atlas = ExtResource("1_rlgoh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv5ln"]
+atlas = ExtResource("2_esdi3")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0hth"]
+atlas = ExtResource("2_esdi3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25msa"]
+atlas = ExtResource("2_esdi3")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sj1wc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qv7xt")
+"texture": SubResource("AtlasTexture_sj1wc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_esdi3")
+"texture": SubResource("AtlasTexture_dv5ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0hth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25msa")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_esdi3"]
-size = Vector2(27.5, 26)
-
-[node name="Lever" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_sj1wc")
-frame_progress = 0.42288134
+[node name="Lever" type="Node2D"]
 script = ExtResource("2_qv7xt")
 
 [node name="LeverArea" type="Area2D" parent="."]
@@ -40,6 +52,10 @@ z_index = -2
 top_level = true
 position = Vector2(0.25, -1)
 shape = SubResource("RectangleShape2D_esdi3")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sj1wc")
+frame_progress = 0.42288134
 
 [connection signal="input_event" from="LeverArea" to="." method="_on_lever_area_input_event"]
 [connection signal="mouse_entered" from="LeverArea" to="." method="_on_lever_area_mouse_entered"]
