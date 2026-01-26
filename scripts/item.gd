@@ -5,6 +5,8 @@ extends RigidBody2D
 @onready var pick_up_zone: Area2D = $PickUpZone
 @onready var rigid_collision_shape_2d: CollisionShape2D = $RigidCollisionShape2D
 
+@export var value = 10
+
 var in_inventory = false:
 	set(value):
 		in_inventory = value

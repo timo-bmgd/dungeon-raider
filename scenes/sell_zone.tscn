@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7iwajhy7c63l"]
+
+[ext_resource type="Script" uid="uid://boxjjfod4fw7y" path="res://scripts/sell_zone.gd" id="1_fjv76"]
+[ext_resource type="PackedScene" uid="uid://53fqv8bnvf8g" path="res://scenes/lever.tscn" id="2_b2d3b"]
+[ext_resource type="FontFile" uid="uid://cspj4nll68qpc" path="res://assets/fonts/DS-TERM.TTF" id="3_b2d3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r71fl"]
+size = Vector2(196.3598, 240.17252)
+
+[node name="SellZone" type="Node2D"]
+script = ExtResource("1_fjv76")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(160, 96)
+scale = Vector2(1.2852691, 1.0023623)
+shape = SubResource("RectangleShape2D_r71fl")
+
+[node name="Lever" parent="." instance=ExtResource("2_b2d3b")]
+
+[node name="Score" type="Label" parent="."]
+offset_left = 32.0
+offset_top = -96.0
+offset_right = 256.0
+offset_bottom = -64.0
+theme_override_colors/font_color = Color(0.4745098, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6509804)
+theme_override_colors/font_outline_color = Color(0.26500753, 0.47040218, 0.6428109, 1)
+theme_override_fonts/font = ExtResource("3_b2d3b")
+theme_override_font_sizes/font_size = 27
+text = "Current Money: 0"
+
+[connection signal="lever_activated" from="Lever" to="." method="_on_lever_lever_activated"]
