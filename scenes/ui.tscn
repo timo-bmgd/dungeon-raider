@@ -19,9 +19,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -408.0
-offset_right = 576.0
+offset_left = -416.0
+offset_top = -216.0
+offset_right = 416.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
@@ -29,25 +29,25 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="itemHolder" type="Panel" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="itemHolder2" type="Panel" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="itemHolder3" type="Panel" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="itemHolder4" type="Panel" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4

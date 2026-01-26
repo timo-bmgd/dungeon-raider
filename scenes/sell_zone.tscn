@@ -21,16 +21,44 @@ shape = SubResource("RectangleShape2D_r71fl")
 
 [node name="Lever" parent="." instance=ExtResource("2_b2d3b")]
 
-[node name="Score" type="Label" parent="."]
-offset_left = 32.0
-offset_top = -96.0
-offset_right = 256.0
-offset_bottom = -64.0
-theme_override_colors/font_color = Color(0.4745098, 1, 1, 1)
+[node name="credit" type="Panel" parent="."]
+offset_left = 66.0
+offset_top = -97.0
+offset_right = 214.0
+offset_bottom = -72.0
+
+[node name="credit_label" type="Label" parent="."]
+z_index = 2
+offset_left = 66.0
+offset_top = -97.0
+offset_right = 290.0
+offset_bottom = -65.0
+theme_override_colors/font_color = Color(0.95779735, 0.79624546, 0.29388097, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6509804)
 theme_override_colors/font_outline_color = Color(0.26500753, 0.47040218, 0.6428109, 1)
 theme_override_fonts/font = ExtResource("3_b2d3b")
-theme_override_font_sizes/font_size = 27
-text = "Current Money: 0"
+theme_override_font_sizes/font_size = 21
+text = "Credit: 0$"
 
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 67.0
+offset_top = -66.0
+offset_right = 215.0
+offset_bottom = -41.0
+
+[node name="items_label" type="Label" parent="."]
+z_index = 2
+offset_left = 67.0
+offset_top = -66.0
+offset_right = 291.0
+offset_bottom = -34.0
+theme_override_colors/font_color = Color(0.95779735, 0.79624546, 0.29388097, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6509804)
+theme_override_colors/font_outline_color = Color(0.26500753, 0.47040218, 0.6428109, 1)
+theme_override_fonts/font = ExtResource("3_b2d3b")
+theme_override_font_sizes/font_size = 21
+text = "Items: 0"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="lever_activated" from="Lever" to="." method="_on_lever_lever_activated"]
