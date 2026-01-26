@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dwmocxudoqvd6" path="res://assets/tilesets/house.tres" id="1_f8ign"]
 [ext_resource type="PackedScene" uid="uid://dn40vkjyojjlp" path="res://scenes/portal.tscn" id="2_4fnxg"]
-[ext_resource type="PackedScene" uid="uid://53fqv8bnvf8g" path="res://scenes/sellzone.tscn" id="3_tj6bq"]
+[ext_resource type="PackedScene" uid="uid://53fqv8bnvf8g" path="res://scenes/lever.tscn" id="3_tj6bq"]
 
 [node name="level_spaceship" type="TileMapLayer"]
 scale = Vector2(2, 2)
