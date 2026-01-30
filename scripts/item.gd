@@ -1,6 +1,6 @@
 class_name Item
 extends RigidBody2D
-@onready var game_manager: Node2D = %GameManager
+@onready var game_manager: Node2D = get_node("/root/Game/GameManager")
 @onready var enable_after_spawn: Timer = $"PickUpZone/Enable after spawn"
 @onready var pick_up_zone: Area2D = $PickUpZone
 @onready var rigid_collision_shape_2d: CollisionShape2D = $RigidCollisionShape2D
@@ -15,6 +15,17 @@ var in_inventory = false:
 	set(value):
 		in_inventory = value
 		print("in inventory changed to:" + str(value))
+
+func _ready():
+	await get_tree().process_frame
+	
+	game_manager = get_node("/root/Game/GameManager")
+	
+	if game_manager:
+		print("✓ GameManager found successfully")
+	else:
+		print("!!! ERROR: GameManager not found")
+
 
 func update_children_scale():
 	for child in get_children():

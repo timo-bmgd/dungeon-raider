@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b75aajcjkg4mj"]
+[gd_scene load_steps=9 format=3 uid="uid://b75aajcjkg4mj"]
 
 [ext_resource type="Script" uid="uid://dlb3hxyyyljge" path="res://scripts/game.gd" id="1_xmnyv"]
 [ext_resource type="Script" uid="uid://b3ye5gktvbhuj" path="res://scripts/game_manager.gd" id="2_cx7qy"]
 [ext_resource type="Script" uid="uid://c351vim3omago" path="res://scripts/inventory.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://di3fotwsmkky1" path="res://scenes/player.tscn" id="4_r0gsk"]
 [ext_resource type="Texture2D" uid="uid://tti50cge3hfr" path="res://assets/sprites/lightcone.png" id="5_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://i7drnkdrssvp" path="res://scenes/item.tscn" id="5_oi2tv"]
 [ext_resource type="PackedScene" uid="uid://bvpekn53kuron" path="res://scenes/ui.tscn" id="6_6370d"]
 [ext_resource type="Script" uid="uid://vbag1du7jjov" path="res://scripts/ui.gd" id="7_fojqs"]
 [ext_resource type="PackedScene" uid="uid://cxktw3i3rbctq" path="res://scenes/main_menu_buttons.tscn" id="8_gee14"]
@@ -77,20 +76,5 @@ z_index = -1
 
 [node name="ItemContainer" type="Node2D" parent="."]
 z_index = 6
-
-[node name="Item" parent="ItemContainer" instance=ExtResource("5_oi2tv")]
-position = Vector2(361, 84)
-
-[node name="Item2" parent="ItemContainer" instance=ExtResource("5_oi2tv")]
-position = Vector2(270, 85)
-
-[node name="Item3" parent="ItemContainer" instance=ExtResource("5_oi2tv")]
-position = Vector2(191, 84)
-
-[node name="Item4" parent="ItemContainer" instance=ExtResource("5_oi2tv")]
-position = Vector2(451, 83)
-
-[node name="Item5" parent="ItemContainer" instance=ExtResource("5_oi2tv")]
-position = Vector2(523, 82)
 
 [connection signal="timeout" from="GameManager/throw_timer" to="GameManager" method="_on_throw_timer_timeout"]
