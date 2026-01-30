@@ -78,3 +78,14 @@ func _on_throw_timer_timeout() -> void:
 	item.apply_impulse(target.normalized() * 500)
 	
 	item.on_thrown()
+
+
+func _on_dungeon_time_over():
+	print("time over")
+
+	pass
+
+func _on_dungeon_second(time:float):
+	print("time:"+str(time))
+	var light: PointLight2D = player.get_node("PointLight2D")
+	light.energy = 0.2 + (0.8*(time/240.0))
