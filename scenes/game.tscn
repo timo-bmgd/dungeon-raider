@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b75aajcjkg4mj"]
+[gd_scene load_steps=10 format=3 uid="uid://b75aajcjkg4mj"]
 
 [ext_resource type="Script" uid="uid://dlb3hxyyyljge" path="res://scripts/game.gd" id="1_xmnyv"]
 [ext_resource type="Script" uid="uid://b3ye5gktvbhuj" path="res://scripts/game_manager.gd" id="2_cx7qy"]
 [ext_resource type="Script" uid="uid://c351vim3omago" path="res://scripts/inventory.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://di3fotwsmkky1" path="res://scenes/player.tscn" id="4_r0gsk"]
+[ext_resource type="Texture2D" uid="uid://tti50cge3hfr" path="res://assets/sprites/lightcone.png" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://i7drnkdrssvp" path="res://scenes/item.tscn" id="5_oi2tv"]
 [ext_resource type="PackedScene" uid="uid://bvpekn53kuron" path="res://scenes/ui.tscn" id="6_6370d"]
 [ext_resource type="Script" uid="uid://vbag1du7jjov" path="res://scripts/ui.gd" id="7_fojqs"]
@@ -31,6 +32,16 @@ position_smoothing_enabled = true
 
 [node name="Inventory" type="Node" parent="Player"]
 script = ExtResource("4_gee14")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 22.2
+texture = ExtResource("5_0tnpc")
+texture_scale = 0.51
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player"]
+visible = false
 
 [node name="ui" parent="." instance=ExtResource("6_6370d")]
 unique_name_in_owner = true
