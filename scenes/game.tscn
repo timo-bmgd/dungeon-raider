@@ -35,8 +35,7 @@ script = ExtResource("4_gee14")
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 22.2
+shadow_filter = 2
 texture = ExtResource("5_0tnpc")
 texture_scale = 0.51
 
