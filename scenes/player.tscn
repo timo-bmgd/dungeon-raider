@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://di3fotwsmkky1"]
+[gd_scene load_steps=46 format=3 uid="uid://di3fotwsmkky1"]
 
 [ext_resource type="Script" uid="uid://vdws3fvqmrxt" path="res://scripts/player_character.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://2ldpjn6yh4x5" path="res://assets/sprites/animals/Sheep_animation_without_shadow.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://tti50cge3hfr" path="res://assets/sprites/lightcone.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(10, 13)
@@ -344,3 +345,10 @@ sprite_frames = SubResource("SpriteFrames_qhqgy")
 animation = &"idle_right"
 autoplay = "idle_down"
 frame_progress = 0.4413762
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("3_qhqgy")
+texture_scale = 0.75

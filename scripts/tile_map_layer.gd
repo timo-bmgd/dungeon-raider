@@ -56,18 +56,11 @@ func _ready():
 
 
 func spawn_item() -> Vector2i:
-	print("\n=== Starting spawn_item() ===")
 	
 	# Calculate world bounds in tile coordinates
 	var world_min = Vector2i(-GENERATIONS * pattern_size.x, -GENERATIONS * pattern_size.y)
 	var world_max = Vector2i(GENERATIONS * pattern_size.x, GENERATIONS * pattern_size.y)
 	
-	print("World bounds - Min: %s, Max: %s" % [world_min, world_max])
-	print("TileMapLayer transform - Position: %s, Scale: %s, Rotation: %s" % [
-		tile_map_layer.global_position,
-		tile_map_layer.scale,
-		tile_map_layer.rotation_degrees
-	])
 	
 	var attempts = 0
 	
@@ -79,40 +72,24 @@ func spawn_item() -> Vector2i:
 			randi_range(world_min.x, world_max.x - 1),
 			randi_range(world_min.y, world_max.y - 1)
 		)
-		
-		print("Attempt %d: Testing position %s" % [attempts, random_tile_pos])
-		
+				
 		# Check if this tile is valid for spawning
-		if is_valid_spawn_location(random_tile_pos):
-			print("✓ SUCCESS! Valid spawn location found at %s after %d attempts" % [random_tile_pos, attempts])
-			
+		if is_valid_spawn_location(random_tile_pos):			
 			# Instantiate the item
-			var item = ItemScene.instantiate()
-			print("  → Item instantiated from scene")
-			
+			var item = ItemScene.instantiate()			
 			# Add to scene tree
-			add_child(item)
-			print("  → Item added to scene tree")
-			
+			add_child(item)			
 			# seti
 			item.game_manager = game_manager
 
 			# Convert tile coordinates to local position, then to global
-			var local_position = tile_map_layer.map_to_local(random_tile_pos)
-			print("  → Tile local position: %s" % local_position)
-			
-			var global_position = tile_map_layer.to_global(local_position)
-			print("  → Converted to global position: %s" % global_position)
-			
+			var local_position = tile_map_layer.map_to_local(random_tile_pos)			
+			var global_position = tile_map_layer.to_global(local_position)			
 			# Position the item at the correct global location
 			item.global_position = global_position
-			print("  → Item positioned at: %s" % item.global_position)
 			
 			return random_tile_pos
-		else:
-			print("✗ Position %s is not valid for spawning" % random_tile_pos)
-	
-	print("!!! FAILED to find valid spawn location after %d attempts" % MAX_SPAWN_ATTEMPTS)
+
 	return Vector2i(-999999, -999999)
 
 
@@ -120,39 +97,27 @@ func is_valid_spawn_location(tile_coords: Vector2i) -> bool:
 	"""
 	Checks if a tile position is valid for item spawning.
 	Uses custom data layer to determine validity.
-	"""
-	print("  Checking tile at %s..." % tile_coords)
-	
+	"""	
 	# Get the tile data at this position
 	var tile_data = tile_map_layer.get_cell_tile_data(tile_coords)
 	
 	if tile_data == null:
-		print("  → No tile exists at this position")
 		return false
 	
 	# Check if the custom data layer exists
 	if not tile_data.get_custom_data(VALID_SPAWN_CUSTOM_DATA_LAYER):
-		print("  → Warning: Custom data layer '%s' not found on this tile" % VALID_SPAWN_CUSTOM_DATA_LAYER)
 		return false
 	
 	# Get the custom data value
 	var spawn_data = tile_data.get_custom_data(VALID_SPAWN_CUSTOM_DATA_LAYER)
-	print("  → Custom data '%s' = %s" % [VALID_SPAWN_CUSTOM_DATA_LAYER, spawn_data])
 	
 	# Check if it matches the valid spawn value
 	var is_valid = (spawn_data == VALID_SPAWN_VALUE)
-	print("  → Is valid spawn location: %s" % is_valid)
 	
 	return is_valid
 
 
 # Optional: Test function to spawn multiple items
 func test_spawn_items(count: int = 1000):
-	print("\n=== Testing spawn of %d items ===" % count)
 	for i in range(count):
-		print("\n--- Spawning item %d/%d ---" % [i + 1, count])
 		var spawn_pos = spawn_item()
-		if spawn_pos != Vector2i(-999999, -999999):
-			print("Item %d spawned successfully at %s" % [i + 1, spawn_pos])
-		else:
-			print("Item %d failed to spawn" % [i + 1])

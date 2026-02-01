@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var sneak_speed = 100
 @export var push_force: float = 30.0
 
-
+@onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var current_direction := "down"
 
@@ -51,3 +51,16 @@ func push_items() -> void:
 		if collider is RigidBody2D and collider.get_collision_layer_value(3):
 			var push_dir := -collision.get_normal()
 			collider.apply_central_impulse(push_dir * push_force)
+
+
+func _on_game_manager_level_changed(level_name: Variant) -> void:
+	if point_light_2d == null:
+		return
+	# IF THE PLAYER IS IN THE DUNGEON:
+	if level_name == %GameManager.Level.keys()[1]:
+		# turn on light
+		point_light_2d.enabled = true
+		print("enabled light")
+	else:
+		# turn off light
+		point_light_2d.enabled = false
