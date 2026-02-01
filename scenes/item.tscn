@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://i7drnkdrssvp"]
+[gd_scene load_steps=6 format=3 uid="uid://i7drnkdrssvp"]
 
 [ext_resource type="Texture2D" uid="uid://c376le1b3gfga" path="res://assets/sprites/food/bulk-background-remover/item_hotdog.png" id="1_4gq7n"]
 [ext_resource type="Script" uid="uid://cmps3uoe3fl1r" path="res://scripts/item.gd" id="2_s8enn"]
+[ext_resource type="Texture2D" uid="uid://tti50cge3hfr" path="res://assets/sprites/lightcone.png" id="3_6muww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gq7n"]
 size = Vector2(72, 46)
@@ -14,7 +15,6 @@ collision_layer = 4
 collision_mask = 3
 continuous_cd = 2
 script = ExtResource("2_s8enn")
-item_name = "diamond"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -6)
@@ -38,6 +38,12 @@ autostart = true
 position = Vector2(-0.5234375, -1)
 scale = Vector2(0.87, 0.87)
 shape = SubResource("RectangleShape2D_s8enn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.77040786, 0.69711965, 0.46245682, 1)
+energy = 0.5
+texture = ExtResource("3_6muww")
+texture_scale = 0.3
 
 [connection signal="body_entered" from="PickUpZone" to="." method="_on_pick_up_zone_body_entered"]
 [connection signal="timeout" from="PickUpZone/Enable after spawn" to="." method="_on_enable_after_spawn_timeout"]

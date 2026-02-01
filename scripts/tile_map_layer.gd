@@ -5,9 +5,7 @@ extends TileMapLayer
 const ItemScene = preload("res://scenes/item.tscn")
 @onready var game_manager: Node2D = %GameManager
 
-
-
-@export var GENERATIONS = 5
+@export var GENERATIONS = 8
 @export var ITEM_COUNT = 20
 var pattern_size: Vector2i  # Will store the pattern size for world bounds calculation
 
@@ -18,6 +16,8 @@ const VALID_SPAWN_VALUE = true  # Value that indicates a valid spawn location
 
 func _ready():
 	randomize()
+	
+	clear() #clear the entire tilemap, clean slate
 	
 	var patterns = Array()
 	var patterns_num = tile_map_layer.tile_set.get_patterns_count()
@@ -78,6 +78,9 @@ func spawn_item() -> Vector2i:
 			# Instantiate the item
 			var item = ItemScene.instantiate()			
 			# Add to scene tree
+			
+			item.set_random_item_type()
+			
 			add_child(item)			
 			# seti
 			item.game_manager = game_manager

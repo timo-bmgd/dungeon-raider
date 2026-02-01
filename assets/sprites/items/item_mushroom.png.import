@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do2hb8lmj62yv"
-path="res://.godot/imported/item_diamond.png-4f04d77237e976bb9a219411e629fc3d.ctex"
+uid="uid://d30614u0r78cs"
+path="res://.godot/imported/item_mushroom.png-5fde15c6c3e2a09e5a79c980008469e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/food/bulk-background-remover/item_diamond.png"
-dest_files=["res://.godot/imported/item_diamond.png-4f04d77237e976bb9a219411e629fc3d.ctex"]
+source_file="res://assets/sprites/items/item_mushroom.png"
+dest_files=["res://.godot/imported/item_mushroom.png-5fde15c6c3e2a09e5a79c980008469e5.ctex"]
 
 [params]
 
