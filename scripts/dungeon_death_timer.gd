@@ -6,16 +6,15 @@ extends Node
 signal dungeon_time_over
 signal dungeon_second(time_remaining)
 
-var time_left = 5.0  # 3 minutes in seconds
+var time_left = 180.0  # 3 minutes in seconds
 
 func _ready():
-	timer.wait_time = 1.0  # Update every second
+	timer.wait_time = 1.0 
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
 	update_label()
 	
-	# Find GameManager (assuming it's an autoload or has a specific name)
-	var game_manager = get_node("/root/Game/GameManager")  # Adjust path
+	var game_manager = get_node("/root/Game/GameManager") 
 	dungeon_time_over.connect(game_manager._on_dungeon_time_over)
 	dungeon_second.connect(game_manager._on_dungeon_second)
 

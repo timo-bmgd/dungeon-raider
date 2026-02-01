@@ -1,10 +1,8 @@
-# game_manager.gd - Orchestrates gameplay, delegates to inventory
-
 extends Node2D
 
-enum Level {SPACESHIP, DUNGEON}
+enum Level {LEVEL_SPACESHIP, LEVEL_DUNGEON, DEATH_SCREEN}
 
-var current_level = Level.SPACESHIP
+var current_level = Level.LEVEL_SPACESHIP
 var scenes_path = "res://scenes/%s.tscn"
 
 @onready var ui: CanvasLayer = %ui
@@ -13,6 +11,8 @@ var scenes_path = "res://scenes/%s.tscn"
 @onready var item_container: Node2D = $"../ItemContainer"
 @onready var inventory: Node = $"../Player/Inventory"
 @onready var throw_timer: Timer = $throw_timer
+
+signal level_changed(level_name)
 
 
 func _ready() -> void:
@@ -64,6 +64,7 @@ func load_level(scene_name: String) -> void:
 	var level: Resource = ResourceLoader.load(scenes_path % scene_name)
 	level_container.add_child(level.instantiate())
 	player.position = Vector2(420,420)
+	level_changed.emit(scene_name)
 
 func _on_throw_timer_timeout() -> void:
 	var item = inventory.remove_selected_item()

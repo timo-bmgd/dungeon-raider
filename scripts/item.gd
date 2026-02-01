@@ -14,29 +14,19 @@ extends RigidBody2D
 var in_inventory = false:
 	set(value):
 		in_inventory = value
-		print("in inventory changed to:" + str(value))
 
 func _ready():
 	await get_tree().process_frame
-	
 	game_manager = get_node("/root/Game/GameManager")
-	
-	if game_manager:
-		print("✓ GameManager found successfully")
-	else:
-		print("!!! ERROR: GameManager not found")
-
 
 func update_children_scale():
 	for child in get_children():
 		child.scale = Vector2(size, size)	
 
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
-	print("item collected by:" + str(body.name))
 	game_manager.collect_item(self)
 
 func _on_enable_after_spawn_timeout() -> void:
-	print("enabled the item after spawn timeout")
 	set_collision(true)
 
 func on_thrown() -> void:
@@ -46,7 +36,6 @@ func on_thrown() -> void:
 	enable_after_spawn.start()
 
 func set_collision(status) -> void:
-	print("setting item collision to " + str(status))
 	if status:
 		set_collision_mask_value(2, true)  # Enable collision with player (layer 2)
 	else:
