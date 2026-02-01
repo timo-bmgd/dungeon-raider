@@ -43,7 +43,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_xub87")
 theme_override_font_sizes/font_size = 64
-text = "START GAME"
+text = "PLAY"
 
 [node name="BackToMenu" type="Button" parent="BoxContainer"]
 layout_mode = 2
