@@ -7,7 +7,7 @@ extends Node
 signal dungeon_time_over
 signal dungeon_second(time_remaining)
 
-const MAX_TIME = 10.0
+const MAX_TIME = 180.0
 var time_left = MAX_TIME  # 3 minutes in seconds
 
 func _ready():
