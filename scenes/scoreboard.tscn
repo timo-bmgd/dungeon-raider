@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bk1f2m3vdcjn1"]
+[gd_scene load_steps=0 format=3 uid="uid://bk1f2m3vdcjn1"]
 
 [node name="Scoreboard" type="Node2D"]
 
