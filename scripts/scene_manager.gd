@@ -7,7 +7,6 @@ enum State {MAIN_MENU, GAME}
 var state = State.MAIN_MENU
 
 var game_state = {
-	"inventory_items": [],
 	"money": 0
 }
 
@@ -15,12 +14,9 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(-1)
 
-func save_game_state(inventory: Array, spaceship: Array, money_amount: int):
-	game_state["inventory_items"] = inventory
+func save_game_state(money_amount: int):
 	game_state["money"] = money_amount
 	print("Game state saved: %d items in inventory, %d items in spaceship, $%d" % [
-		inventory.size(), 
-		spaceship.size(), 
 		money_amount
 	])
 
