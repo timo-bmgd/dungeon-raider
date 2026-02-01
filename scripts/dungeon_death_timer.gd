@@ -6,7 +6,7 @@ extends Node
 signal dungeon_time_over
 signal dungeon_second(time_remaining)
 
-var time_left = 35.0  # 4 minutes in seconds
+var time_left = 5.0  # 3 minutes in seconds
 
 func _ready():
 	timer.wait_time = 1.0  # Update every second

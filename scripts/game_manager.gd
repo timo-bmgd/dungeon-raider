@@ -63,6 +63,7 @@ func load_level(scene_name: String) -> void:
 	clear_levels()
 	var level: Resource = ResourceLoader.load(scenes_path % scene_name)
 	level_container.add_child(level.instantiate())
+	player.position = Vector2(420,420)
 
 func _on_throw_timer_timeout() -> void:
 	var item = inventory.remove_selected_item()
@@ -76,14 +77,14 @@ func _on_throw_timer_timeout() -> void:
 	
 	item.linear_velocity = Vector2.ZERO
 	item.apply_impulse(target.normalized() * 500)
-	
 	item.on_thrown()
 
 
 func _on_dungeon_time_over():
 	print("time over")
-
-	pass
+	# remove all items.
+	inventory.clear_inventory()
+	load_level("death_screen")
 
 func _on_dungeon_second(time:float):
 	print("time:"+str(time))

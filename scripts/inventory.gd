@@ -81,3 +81,8 @@ func set_selected(slot: int) -> void:
 
 func get_selected_slot() -> int:
 	return selected_slot
+	
+func clear_inventory() -> void:
+	for i in range(MAX_SLOTS):
+		remove_item(i)
+	
