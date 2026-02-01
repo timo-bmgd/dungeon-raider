@@ -1,8 +1,8 @@
 extends Node2D
 
-enum Level {LEVEL_SPACESHIP, LEVEL_DUNGEON, DEATH_SCREEN}
+enum Level {LEVEL_SPACESHIP, LEVEL_DUNGEON, DEATH_SCREEN, LEVEL_STORY}
 
-var current_level = Level.LEVEL_SPACESHIP
+var current_level = Level.LEVEL_STORY
 var scenes_path = "res://scenes/%s.tscn"
 
 @onready var ui: CanvasLayer = %ui
@@ -20,7 +20,7 @@ func _ready() -> void:
 	ui.connect_to_inventory(inventory)
 	
 	# Set the SPACESHIP as the level
-	load_level("level_spaceship")
+	load_level("level_story")
 	
 	
 func _input(event: InputEvent) -> void:
