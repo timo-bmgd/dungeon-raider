@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var game_manager: Node = get_tree().root.get_node("Game/GameManager")
-enum Destination {LEVEL_SPACESHIP, LEVEL_DUNGEON}
+enum Destination {LEVEL_SPACESHIP, LEVEL_DUNGEON, LEVEL_HALLWAY}
 @export var destination: Destination
 
 

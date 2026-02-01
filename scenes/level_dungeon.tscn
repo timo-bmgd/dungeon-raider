@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dw2i2ete7ha10"]
+[gd_scene load_steps=7 format=4 uid="uid://dw2i2ete7ha10"]
 
 [ext_resource type="TileSet" uid="uid://h82ujpfh1w5x" path="res://assets/tilesets/dungeon.tres" id="1_7tcp7"]
 [ext_resource type="Script" uid="uid://cqy0kf2c4yfc3" path="res://scripts/tile_map_layer.gd" id="2_27e8k"]
 [ext_resource type="PackedScene" uid="uid://dn40vkjyojjlp" path="res://scenes/portal.tscn" id="3_27e8k"]
 [ext_resource type="Script" uid="uid://dihacwvis8fe4" path="res://scripts/dungeon_death_timer.gd" id="4_2dcx5"]
+[ext_resource type="PackedScene" uid="uid://r1f7qhkc53lm" path="res://scenes/blacksheep.tscn" id="5_1mw3w"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_27e8k"]
 
@@ -17,6 +18,19 @@ tile_map_data = PackedByteArray("AADy/9n/AAABAAEAAADy/9r/AAABAAEAAADy/9v/AAABAAE
 tile_set = ExtResource("1_7tcp7")
 script = ExtResource("2_27e8k")
 ITEM_COUNT = 100
+
+[node name="Blacksheep" parent="level_dungeon2" instance=ExtResource("5_1mw3w")]
+position = Vector2(154.78261, 121.30435)
+scale = Vector2(0.86956525, 0.86956525)
+
+[node name="Label" type="Label" parent="level_dungeon2/Blacksheep"]
+offset_left = -58.5
+offset_top = -81.5
+offset_right = 91.5
+offset_bottom = -32.5
+text = "get that cash...
+ but don't get lost..."
+metadata/_edit_use_anchors_ = true
 
 [node name="Portal" parent="level_dungeon2" instance=ExtResource("3_27e8k")]
 position = Vector2(79.565216, 129.13043)
