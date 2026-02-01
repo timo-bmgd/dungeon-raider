@@ -1,38 +1,69 @@
 class_name Item
 extends RigidBody2D
 
+enum ItemType {
+	BOXEDLUNCH,
+	CHOCOLATE,
+	DIAMOND,
+	HOTDOG,
+	MUSHROOM,
+	NOODLECUP,
+	PERFECTSANDWICH,
+	RATION,
+	WINE
+}
+
+const ITEM_DATA: Dictionary = {
+	ItemType.BOXEDLUNCH: {"name": "boxedlunch", "value": 35},
+	ItemType.CHOCOLATE: {"name": "chocolate", "value": 15},
+	ItemType.DIAMOND: {"name": "diamond", "value": 1000},
+	ItemType.HOTDOG: {"name": "hotdog", "value": 10},
+	ItemType.MUSHROOM: {"name": "mushroom", "value": 5},
+	ItemType.NOODLECUP: {"name": "noodlecup", "value": 20},
+	ItemType.PERFECTSANDWICH: {"name": "perfectsandwich", "value": 100},
+	ItemType.RATION: {"name": "ration", "value": 25},
+	ItemType.WINE: {"name": "wine", "value": 50}
+}
+
 @onready var game_manager: Node2D = get_node("/root/Game/GameManager")
 @onready var enable_after_spawn: Timer = $"PickUpZone/Enable after spawn"
 @onready var pick_up_zone: Area2D = $PickUpZone
 @onready var rigid_collision_shape_2d: CollisionShape2D = $RigidCollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D  # Adjust this path to match your sprite node name
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
-@export var value = 10
+@export var item_type: ItemType = ItemType.HOTDOG:
+	set(new_type):
+		item_type = new_type
+		_update_item_from_type()
 
-@export var item_name: String = "":
-	set(new_name):
-		item_name = new_name
-		_update_sprite_texture()
+@export var value: int = 10
 
 @export var size = 1:
-	set(value):
-		size = value
+	set(new_size):
+		size = new_size
 		update_children_scale()
 
 var in_inventory = false:
-	set(value):
-		in_inventory = value
+	set(new_value):
+		in_inventory = new_value
 
-func _update_sprite_texture() -> void:
+func _update_item_from_type() -> void:
+	if not ITEM_DATA.has(item_type):
+		return
+	
+	var data = ITEM_DATA[item_type]
+	value = data["value"]
+	_update_sprite_texture(data["name"])
+
+func _update_sprite_texture(item_name: String) -> void:
 	if item_name.is_empty():
 		return
 	
-	var texture_path = "res://assets/sprites/food/bulk-background-remover/item_%s.png" % item_name
+	var texture_path = "res://assets/sprites/items/item_%s.png" % item_name
 	
-	# Check if texture exists before loading
 	if ResourceLoader.exists(texture_path):
 		var texture = load(texture_path)
-		# In editor, we need to get the node directly since @onready hasn't run
 		var sprite_node = get_node_or_null("Sprite2D")  # Adjust path if needed
 		if sprite_node:
 			sprite_node.texture = texture
@@ -42,8 +73,7 @@ func _update_sprite_texture() -> void:
 func _ready():
 	await get_tree().process_frame
 	game_manager = get_node("/root/Game/GameManager")
-	# Ensure texture is set on ready as well
-	_update_sprite_texture()
+	_update_item_from_type()
 
 func update_children_scale():
 	for child in get_children():
@@ -67,6 +97,20 @@ func set_collision(status) -> void:
 	else:
 		set_collision_mask_value(2, false)
 	pick_up_zone.monitoring = status
+	
+func set_random_item_type() -> void:
+	var total_weight: float = 0.0
+	for type in ITEM_DATA:
+		total_weight += 1.0 / ITEM_DATA[type]["value"]
+	
+	var roll: float = randf() * total_weight
+	var cumulative: float = 0.0
+	
+	for type in ITEM_DATA:
+		cumulative += 1.0 / ITEM_DATA[type]["value"]
+		if roll <= cumulative:
+			item_type = type
+			return
 
 func enter_inventory() -> void:
 	in_inventory = true
@@ -74,7 +118,9 @@ func enter_inventory() -> void:
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0
 	size = 2
+	point_light_2d.enabled = false
 
 func exit_inventory() -> void:
 	in_inventory = false
 	size = 1
+	point_light_2d.enabled = true

@@ -1249,3 +1249,4 @@ text = "follow me..."
 
 [node name="Item" parent="." instance=ExtResource("4_ga202")]
 position = Vector2(1428, 334)
+item_type = 4

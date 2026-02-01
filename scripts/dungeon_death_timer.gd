@@ -25,8 +25,9 @@ func _ready():
 
 func _on_timer_timeout():
 	time_left -= 1.0
-	var ratio = time_left/MAX_TIME
-	canvas_modulate.color = Color(0.303, 0.38, 0.554, 1.0).darkened(1 - ratio*2 +0.2)
+	var ratio = 1 - (time_left/MAX_TIME)
+	print(str(ratio) + " = " + str(ratio*2 +0.3))
+	canvas_modulate.color = Color(0.303, 0.38, 0.554, 1.0).darkened(ratio*3 +0.3)
 	
 	if time_left <= 0:
 		time_left = 0
