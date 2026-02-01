@@ -5,8 +5,23 @@ extends Node2D
 @onready var items_label: Label = $items_label
 
 
-var current_money = 0
+var current_money = 0:
+	set(value):
+		current_money = value
+		_update_save_state()
 var current_items = 0
+
+func _update_save_state():	
+	SceneManager.save_game_state(current_money)
+
+func _ready() -> void:
+	current_money = SceneManager.get_game_state()["money"]
+	_update_labels()
+
+
+func _update_labels() -> void:
+	credit_label.text = "Credit: " + str(current_money)
+	items_label.text = "Items: " + str(current_items)
 
 func _on_lever_lever_activated(is_on: bool) -> void:
 	if(is_on):
@@ -22,16 +37,17 @@ func _on_lever_lever_activated(is_on: bool) -> void:
 		current_money += money_made
 		for item in items:
 			item.queue_free()
-		credit_label.text = "Credit: " + str(current_money)
+		_update_labels()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Item:
 		current_items += 1
-		items_label.text = "Items: " + str(current_items)
+		_update_labels()
+
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Item:
 		current_items -= 1
-		items_label.text = "Items: " + str(current_items)
+		_update_labels()

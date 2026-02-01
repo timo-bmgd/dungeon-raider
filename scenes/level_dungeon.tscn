@@ -22,7 +22,7 @@ ITEM_COUNT = 100
 position = Vector2(79.565216, 129.13043)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="level_dungeon2"]
-color = Color(0, 0, 0, 1)
+color = Color(0.065169334, 0.09145393, 0.15989277, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="level_dungeon2"]
 

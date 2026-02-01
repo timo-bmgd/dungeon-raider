@@ -89,5 +89,3 @@ func _on_dungeon_time_over():
 
 func _on_dungeon_second(time:float):
 	print("time:"+str(time))
-	var light: PointLight2D = player.get_node("PointLight2D")
-	light.energy = 0.2 + (0.8*(time/240.0))
