@@ -59,8 +59,8 @@ func _on_game_manager_level_changed(level_name: Variant) -> void:
 	# IF THE PLAYER IS IN THE DUNGEON:
 	if level_name == %GameManager.Level.keys()[1]:
 		# turn on light
-		point_light_2d.enabled = true
+		point_light_2d.visible = true
 		print("enabled light")
 	else:
 		# turn off light
-		point_light_2d.enabled = false
+		point_light_2d.visible = false
