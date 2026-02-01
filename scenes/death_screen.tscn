@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://c7ftlu3u0v3ev"]
+[gd_scene load_steps=44 format=3 uid="uid://c7ftlu3u0v3ev"]
 
 [ext_resource type="Texture2D" uid="uid://2ldpjn6yh4x5" path="res://assets/sprites/animals/Sheep_animation_without_shadow.png" id="1_uyutr"]
+[ext_resource type="PackedScene" uid="uid://dn40vkjyojjlp" path="res://scenes/portal.tscn" id="2_dwo6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_uyutr")
@@ -330,21 +331,38 @@ animations = [{
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 269.0
-offset_top = 348.0
-offset_right = 1023.0
-offset_bottom = 567.0
+offset_left = 287.0
+offset_top = 176.0
+offset_right = 1041.0
+offset_bottom = 395.0
 theme_override_font_sizes/font_size = 160
 text = "YOU DIED"
 
 [node name="DeathMessage" type="Label" parent="."]
-offset_left = 135.0
-offset_top = 645.0
-offset_right = 1007.0
-offset_bottom = 864.0
+offset_left = 70.0
+offset_top = 463.0
+offset_right = 942.0
+offset_bottom = 682.0
 theme_override_font_sizes/font_size = 60
 text = "you fell aslepp in the dungeon
 (time ran out)"
+
+[node name="DeathMessage2" type="Label" parent="."]
+offset_left = 1003.0
+offset_top = 718.0
+offset_right = 1875.0
+offset_bottom = 937.0
+theme_override_font_sizes/font_size = 30
+text = "->"
+
+[node name="DeathMessage3" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 654.0
+offset_right = 972.0
+offset_bottom = 873.0
+theme_override_colors/font_color = Color(0.8426347, 0, 0.31472117, 1)
+theme_override_font_sizes/font_size = 30
+text = "All your items and money have been lost"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1406, 644)
@@ -354,3 +372,7 @@ sprite_frames = SubResource("SpriteFrames_dwo6e")
 animation = &"idle_down"
 autoplay = "idle_down"
 speed_scale = 0.0
+
+[node name="Portal" parent="." instance=ExtResource("2_dwo6e")]
+position = Vector2(1108, 789)
+scale = Vector2(2.56, 2.56)
