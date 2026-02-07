@@ -347,7 +347,6 @@ autoplay = "idle_down"
 frame_progress = 0.4413762
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("3_qhqgy")

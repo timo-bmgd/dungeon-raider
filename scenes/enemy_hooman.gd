@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 @export var speed = 150.0
-@export var change_direction_time = 2.0  # How often to pick new direction
+@export var change_direction_time = 2.0
+@export var rotation_smoothness = 5.0
 
-@onready var ray_right: RayCast2D = $right
-@onready var ray_left: RayCast2D = $left
-@onready var ray_up: RayCast2D = $up
-@onready var ray_down: RayCast2D = $down
+@onready var ray_up = $up
+@onready var ray_down = $down
+@onready var ray_left = $left
+@onready var ray_right = $right
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var light = $PointLight2D
 
 var current_direction = Vector2.ZERO
 var direction_timer = 0.0
@@ -17,7 +20,6 @@ func _ready():
 func _physics_process(delta):
 	direction_timer -= delta
 	
-	# Pick new random direction periodically
 	if direction_timer <= 0:
 		pick_random_direction()
 	
@@ -33,16 +35,39 @@ func _physics_process(delta):
 	if ray_right.is_colliding() and current_direction.x > 0:
 		adjusted_direction.x = 0
 	
-	# If blocked, pick new direction immediately
 	if adjusted_direction == Vector2.ZERO:
 		pick_random_direction()
 		adjusted_direction = current_direction
 	
 	velocity = adjusted_direction.normalized() * speed
 	move_and_slide()
+	
+	# Update animation and light rotation
+	update_animation(adjusted_direction)
+	update_light_rotation(adjusted_direction, delta)
+
+func update_animation(direction: Vector2):
+	if direction == Vector2.ZERO:
+		animated_sprite.stop()
+		return
+	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			animated_sprite.play("run_right")
+		else:
+			animated_sprite.play("run_left")
+	else:
+		if direction.y > 0:
+			animated_sprite.play("run_down")
+		else:
+			animated_sprite.play("run_up")
+
+func update_light_rotation(direction: Vector2, delta):
+	if direction != Vector2.ZERO:
+		var target_angle = direction.angle()
+		light.rotation = lerp_angle(light.rotation, target_angle, rotation_smoothness * delta)
 
 func pick_random_direction():
-	# Pick random cardinal or diagonal direction
 	current_direction = Vector2(
 		randf_range(-1, 1),
 		randf_range(-1, 1)
