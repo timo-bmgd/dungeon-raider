@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://dgxqds3jgetwy"]
+[gd_scene load_steps=11 format=4 uid="uid://dgxqds3jgetwy"]
 
 [ext_resource type="TileSet" uid="uid://dwmocxudoqvd6" path="res://assets/tilesets/house.tres" id="1_f8ign"]
 [ext_resource type="PackedScene" uid="uid://dn40vkjyojjlp" path="res://scenes/portal.tscn" id="2_4fnxg"]
 [ext_resource type="PackedScene" uid="uid://c7iwajhy7c63l" path="res://scenes/sell_zone.tscn" id="4_niaoa"]
 [ext_resource type="Texture2D" uid="uid://cighjsetpy7jt" path="res://assets/sprites/indoor/roguelikeIndoor_transparent.png" id="5_7ru1y"]
 [ext_resource type="Texture2D" uid="uid://be047yrjtv06q" path="res://assets/sprites/modern-city/roguelikeCity_magenta.png" id="5_o6el5"]
+[ext_resource type="AudioStream" uid="uid://bfgtpx8v4msiv" path="res://assets/music/main_soundtrack.mp3" id="6_o6el5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l55rn"]
 texture = ExtResource("5_o6el5")
@@ -1744,3 +1745,7 @@ text = "↑ ↑  items in here ↑ ↑"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_o6el5")
+autoplay = true

@@ -98,7 +98,7 @@ func set_collision(status) -> void:
 		set_collision_mask_value(2, false)
 	pick_up_zone.monitoring = status
 	
-func set_random_item_type() -> void:
+func set_random_type() -> void:
 	var total_weight: float = 0.0
 	for type in ITEM_DATA:
 		total_weight += 1.0 / ITEM_DATA[type]["value"]
