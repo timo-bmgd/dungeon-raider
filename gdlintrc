@@ -1,0 +1,17 @@
+# gdlint configuration for dungeon-raider
+# See docs/claude/lint-notes.md for the rationale and the Step 2 plan.
+#
+# This project is a Godot 4.5 -> 4.7 migration (see CLAUDE.md). The two rules
+# below are disabled ONLY to stop legacy-code noise from drowning real findings
+# during Steps 0-1. They are not permanent; Step 2 re-enables them and runs
+# `gdformat` to fix the underlying code. Do not disable additional rules without
+# updating docs/claude/lint-notes.md.
+#
+# Baseline measured on 2026-10-05 against gdtoolkit 4.5.0:
+#   80 trailing-whitespace + 38 class-definitions-order = 118 of 122 findings.
+#   Disabling these two leaves 4 genuine findings (3 class-variable-name,
+#   1 unused-argument), which stay enabled on purpose.
+
+disable:
+  - trailing-whitespace       # 80 hits: blank lines with trailing tabs. Cosmetic; gdformat fixes in Step 2.
+  - class-definitions-order   # 38 hits: legacy member ordering (e.g. signals after @onready vars). Reorder in Step 2.

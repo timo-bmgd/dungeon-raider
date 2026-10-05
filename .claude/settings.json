@@ -1,0 +1,48 @@
+{
+  "enabledPlugins": {
+    "gdscript-toolkit@claude-godot-tools": true,
+    "godot-skills@godot-skills": true,
+    "gdscript@claude-code-gdscript": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-godot-tools": {
+      "source": {
+        "source": "github",
+        "repo": "minami110/claude-godot-tools"
+      }
+    },
+    "godot-skills": {
+      "source": {
+        "source": "github",
+        "repo": "xlanstar/godot-skills"
+      }
+    },
+    "claude-code-gdscript": {
+      "source": {
+        "source": "github",
+        "repo": "twaananen/claude-code-gdscript"
+      }
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gdlint:*)",
+      "Bash(tools/claude/godot.sh:*)",
+      "Bash(./tools/claude/godot.sh:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR/tools/claude/gd_check.py\"",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}
