@@ -6,17 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Godot 4.7.2** (GL Compatibility renderer, 2D). Use **only Godot 4.7 APIs** — never Godot 3
   APIs or syntax, and prefer 4.7 idioms over 4.5 ones.
-- The project was written for **4.5** and opened in 4.7, so expect **legacy patterns** (untyped
-  vars, `print()` debugging, members in non-canonical order) until the Step 1 migration is done.
-  Do not treat legacy style as the target style.
+- The project was written for **4.5** and opened in 4.7, so expect **legacy style** (untyped
+  vars, `print()` debugging, members in non-canonical order) until the **Step 2** cleanup.
+  Do not treat legacy style as the target style. (The 4.5→4.7 API migration itself — Step 1 — is
+  complete; only the mechanical style cleanup remains.)
 
 ## Roadmap & step rules (read before editing)
 
 Work happens in strict steps. **Stay inside the current step.**
 
 - **Step 0** — environment setup (done: this tooling).
-- **Step 1** — audit & finish the 4.5→4.7 migration: fix deprecations/behavior changes, confirm it runs.
-- **Step 2** — refactoring only. **No behavior changes, no new features.**
+- **Step 1** — audit & finish the 4.5→4.7 migration (**done, 2026-10-06**: static audit + live run
+  verified clean on 4.7.2 — the project was already on modern 4.x idioms, so **no code changes were
+  needed**; editor loads and the game boots/plays error-free).
+- **Step 2** — refactoring only. **No behavior changes, no new features.** (next)
 
 Rules that always hold: a refactor must not change behavior; **never fix unrelated lint warnings
 unless asked**; the mechanical style cleanup (`gdformat`, member reordering) is a **Step 2** task,
