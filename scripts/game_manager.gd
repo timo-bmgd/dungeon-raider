@@ -21,7 +21,7 @@ func _ready() -> void:
 	ui.connect_to_inventory(inventory)
 	
 	# Set the SPACESHIP as the level
-	load_level("level_spaceship")
+	load_level("level_story")
 	
 	
 func _input(event: InputEvent) -> void:

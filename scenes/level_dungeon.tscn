@@ -22,7 +22,7 @@ script = ExtResource("2_27e8k")
 ITEM_COUNT = 100
 
 [node name="Blacksheep" parent="level_dungeon2" instance=ExtResource("5_1mw3w")]
-position = Vector2(154.78261, 121.30435)
+position = Vector2(201.30435, 120.00001)
 scale = Vector2(0.86956525, 0.86956525)
 
 [node name="Label" type="Label" parent="level_dungeon2/Blacksheep"]
@@ -39,7 +39,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(79.565216, 129.13043)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="level_dungeon2"]
-visible = false
 color = Color(0.065169334, 0.09145393, 0.15989277, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="level_dungeon2"]
