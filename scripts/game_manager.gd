@@ -11,6 +11,7 @@ var scenes_path = "res://scenes/%s.tscn"
 @onready var item_container: Node2D = $"../ItemContainer"
 @onready var inventory: Node = $"../Player/Inventory"
 @onready var throw_timer: Timer = $throw_timer
+@onready var door_sound: AudioStreamPlayer2D = $DoorSound
 
 signal level_changed(level_name)
 
@@ -20,7 +21,7 @@ func _ready() -> void:
 	ui.connect_to_inventory(inventory)
 	
 	# Set the SPACESHIP as the level
-	load_level("level_spaceship")
+	load_level("level_story")
 	
 	
 func _input(event: InputEvent) -> void:
@@ -65,6 +66,7 @@ func load_level(scene_name: String) -> void:
 	level_container.add_child(level.instantiate())
 	player.position = Vector2(420,420)
 	level_changed.emit(scene_name)
+	door_sound.play()
 
 func _on_throw_timer_timeout() -> void:
 	var item = inventory.remove_selected_item()

@@ -6,7 +6,8 @@ const ItemScene = preload("res://scenes/item.tscn")
 @onready var game_manager: Node2D = %GameManager
 
 @export var GENERATIONS = 8
-@export var ITEM_COUNT = 20
+@export var ITEM_COUNT = 14
+@export var ENEMY_COUNT = 3
 var pattern_size: Vector2i  # Will store the pattern size for world bounds calculation
 
 # Configuration for item spawning
@@ -79,7 +80,7 @@ func spawn_item() -> Vector2i:
 			var item = ItemScene.instantiate()			
 			# Add to scene tree
 			
-			item.set_random_item_type()
+			item.set_random_type()
 			
 			add_child(item)			
 			# seti

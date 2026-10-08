@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://dn40vkjyojjlp"]
+[gd_scene load_steps=7 format=4 uid="uid://dn40vkjyojjlp"]
 
 [ext_resource type="Script" uid="uid://rnmwybug2nps" path="res://scripts/portal.gd" id="1_1ffj6"]
 [ext_resource type="Texture2D" uid="uid://b2xthmrpbirhr" path="res://assets/sprites/Top-Down_Retro_Interior/TopDownHouse_DoorsAndWindows.png" id="1_v0xau"]
+[ext_resource type="AudioStream" uid="uid://so7gixgyxg08" path="res://assets/sounds/door.mp3" id="3_jr6l0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ffj6"]
 texture = ExtResource("1_v0xau")
@@ -199,5 +200,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_1ffj6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jr6l0")
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

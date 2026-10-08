@@ -1,3 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/build/
+/plugins/
+
+# Claude Code: machine-specific local settings (GODOT_BIN path, etc.)
+.claude/settings.local.json

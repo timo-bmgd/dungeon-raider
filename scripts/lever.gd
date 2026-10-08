@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2d
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 signal lever_activated(is_on: bool)
 
@@ -12,6 +13,7 @@ func _on_lever_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: 
 		activated = int(!bool(activated)) # genius
 		set_animation_frame()
 		lever_activated.emit(bool(activated))
+		audio_stream_player_2d.play()
 
 func set_animation_frame() -> void:
 	animated_sprite_2d.frame = activated + selected

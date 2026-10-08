@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://53fqv8bnvf8g"]
+[gd_scene load_steps=10 format=3 uid="uid://53fqv8bnvf8g"]
 
 [ext_resource type="Texture2D" uid="uid://d2g4b3ixa6g3b" path="res://assets/sprites/indoor/lever2_selectable.png" id="2_esdi3"]
 [ext_resource type="Script" uid="uid://cc5xit0yqrvly" path="res://scripts/lever.gd" id="2_qv7xt"]
+[ext_resource type="AudioStream" uid="uid://ijfnt5dfqp2m" path="res://assets/sounds/coin.wav" id="3_qxmkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esdi3"]
 size = Vector2(27.5, 26)
@@ -56,6 +57,9 @@ shape = SubResource("RectangleShape2D_esdi3")
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sj1wc")
 frame_progress = 0.42288134
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qxmkn")
 
 [connection signal="input_event" from="LeverArea" to="." method="_on_lever_area_input_event"]
 [connection signal="mouse_entered" from="LeverArea" to="." method="_on_lever_area_mouse_entered"]

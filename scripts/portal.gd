@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 @onready var game_manager: Node = get_tree().root.get_node("Game/GameManager")
 enum Destination {LEVEL_SPACESHIP, LEVEL_DUNGEON, LEVEL_HALLWAY}
 @export var destination: Destination
@@ -8,4 +10,5 @@ enum Destination {LEVEL_SPACESHIP, LEVEL_DUNGEON, LEVEL_HALLWAY}
 
 func _on_door_body_entered(_body: Node2D) -> void:
 	print("portal entered")
+	audio_stream_player_2d.play()
 	game_manager.load_level(Destination.keys()[destination])

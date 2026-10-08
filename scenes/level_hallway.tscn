@@ -572,6 +572,33 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_rumy6")
 
+[sub_resource type="Animation" id="Animation_0xtwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(187.20001, 138)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
 [sub_resource type="Animation" id="Animation_sku2v"]
 resource_name = "sheepo"
 length = 30.0
@@ -607,33 +634,6 @@ from the humans", "and i'll sell it,
 and give you 5%.", ""]
 }
 
-[sub_resource type="Animation" id="Animation_0xtwf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(187.20001, 138)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_axl5d"]
 _data = {
 &"RESET": SubResource("Animation_0xtwf"),
@@ -662,6 +662,7 @@ libraries = {
 autoplay = "sheepo"
 
 [node name="Label" type="Label" parent="Blacksheep"]
+z_index = 8
 offset_left = -32.500023
 offset_top = -58.999996
 offset_right = 7.499977

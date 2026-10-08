@@ -1,10 +1,11 @@
-[gd_scene load_steps=52 format=4 uid="uid://p61lcqwm3wvt"]
+[gd_scene load_steps=53 format=4 uid="uid://p61lcqwm3wvt"]
 
 [ext_resource type="Texture2D" uid="uid://be047yrjtv06q" path="res://assets/sprites/modern-city/roguelikeCity_magenta.png" id="1_k0v5l"]
 [ext_resource type="Texture2D" uid="uid://2ldpjn6yh4x5" path="res://assets/sprites/animals/Sheep_animation_without_shadow.png" id="2_j5gdf"]
 [ext_resource type="PackedScene" uid="uid://dn40vkjyojjlp" path="res://scenes/portal.tscn" id="2_vnpm6"]
 [ext_resource type="PackedScene" uid="uid://r1f7qhkc53lm" path="res://scenes/blacksheep.tscn" id="3_5156g"]
 [ext_resource type="PackedScene" uid="uid://i7drnkdrssvp" path="res://scenes/item.tscn" id="4_ga202"]
+[ext_resource type="AudioStream" uid="uid://d0348ukpqoo4o" path="res://assets/music/1646birdsoundsspectacularmorningbirdsoundyoutub.mp3" id="6_3vvy0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnpm6"]
 texture = ExtResource("1_k0v5l")
@@ -1609,3 +1610,8 @@ text = "follow me..."
 
 [node name="Item" parent="." instance=ExtResource("4_ga202")]
 position = Vector2(1428, 334)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3vvy0")
+autoplay = true
+parameters/looping = false

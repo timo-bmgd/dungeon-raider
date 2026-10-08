@@ -12,11 +12,14 @@ func _physics_process(_delta: float) -> void:
 func update_animation() -> void:
 	var movement := global_position - previous_position
 	
-	if movement.length_squared() < 0.001:
+	if movement.length_squared() < 0.000001:
+		print("bs idle anim")
 		# Not moving -> idle, face down
 		current_direction = "down"
 		animated_sprite.play("idle_" + current_direction)
 	else:
+		print("bs run anim")
+		
 		# Moving -> determine direction from movement
 		if abs(movement.x) > abs(movement.y):
 			current_direction = "right" if movement.x > 0 else "left"
