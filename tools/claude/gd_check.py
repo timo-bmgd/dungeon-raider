@@ -36,6 +36,27 @@ def emit(context: str) -> None:
     sys.exit(0)
 
 
+def autoload_names(root: Path) -> set:
+    """Names registered in project.godot [autoload]. Isolated `--check-only`
+    does not register autoload singletons, so references to them surface as
+    false 'Identifier not found: <Autoload>' errors that we filter out."""
+    names = set()
+    pg = root / "project.godot"
+    if not pg.exists():
+        return names
+    in_autoload = False
+    try:
+        for line in pg.read_text().splitlines():
+            s = line.strip()
+            if s.startswith("["):
+                in_autoload = (s == "[autoload]")
+            elif in_autoload and "=" in s and not s.startswith(";"):
+                names.add(s.split("=", 1)[0].strip())
+    except Exception:
+        pass
+    return names
+
+
 def main() -> None:
     try:
         payload = json.load(sys.stdin)
@@ -91,9 +112,26 @@ def main() -> None:
             )
             errs = [ln for ln in (res.stdout + res.stderr).splitlines()
                     if any(m in ln for m in GODOT_ERROR_MARKERS)]
-            if errs:
+
+            # Filter autoload false positives (see autoload_names). Drop the
+            # "Identifier not found: <autoload>" lines, and drop the resulting
+            # "Compilation failed" cascade when nothing else actually failed.
+            autoloads = autoload_names(root)
+
+            def is_fp(ln):
+                return any(("Identifier not found: %s" % a) in ln for a in autoloads)
+
+            def is_cascade(ln):
+                return "Failed to load script" in ln and "Compilation failed" in ln
+
+            fp = [ln for ln in errs if is_fp(ln)]
+            non_fp = [ln for ln in errs if not is_fp(ln)]
+            real = [ln for ln in non_fp if not is_cascade(ln)]
+            report_errs = [] if (fp and not real) else non_fp
+
+            if report_errs:
                 sections.append("godot --check-only:\n"
-                                + "\n".join("  " + ln for ln in errs))
+                                + "\n".join("  " + ln for ln in report_errs))
         except Exception:
             pass
 
